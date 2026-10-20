@@ -1,0 +1,8 @@
+torch
+torchvision
+matplotlib
+psutil
+ipython
+jupyterlab
+safetensors
+huggingface_hub
