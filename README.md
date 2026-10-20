@@ -79,7 +79,7 @@ import sys
 from huggingface_hub import snapshot_download
 import matplotlib.pyplot as plt
 
-model_url = "<HUGGING_FACE_MODEL_URL>"
+model_url = "https://huggingface.co/onebelowall/ddpm-cifar10-v66"
 repo_id = model_url.removeprefix("https://huggingface.co/").rstrip("/")
 package_dir = snapshot_download(
     repo_id=repo_id,
