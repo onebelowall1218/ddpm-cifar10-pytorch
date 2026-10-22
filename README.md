@@ -13,6 +13,10 @@ v66 resumed from **v65's best checkpoint at cumulative step 14,000**. The two ru
 
 The notebook shows the original loss plots, class-conditioned samples, CFG comparisons, and six mixed-conditioning pairs. These are qualitative CIFAR-10 generations; no FID, Inception Score, or systematic human rating was measured.
 
+![Ten class-conditioned v66 samples at guidance scale 3.0](docs/assets/v66-cfg3-class-grid.png)
+
+*Saved output from the v66 notebook, using the best EMA checkpoint and classifier-free guidance scale 3.0. One generated sample per CIFAR-10 class; this grid is a qualitative example, not an image-quality score.*
+
 ## Architecture
 
 ```mermaid
@@ -53,8 +57,9 @@ The model predicts Gaussian noise over a 1,000-step linear beta schedule. Sampli
 | `requirements.txt` | Notebook and public inference dependencies |
 | `LICENSE` | MIT license for this project |
 | `.gitignore` | Keeps local data, checkpoints, generated files, and environments out of Git |
+| `docs/assets/v66-cfg3-class-grid.png` | Saved ten-class sample grid from the v66 notebook |
 
-The trained EMA weights are prepared separately for the [Hugging Face model repository](<HUGGING_FACE_MODEL_URL>); no weight or inference-helper file is part of this five-file GitHub repository.
+The trained EMA weights are published in the separate [Hugging Face model repository](https://huggingface.co/onebelowall/ddpm-cifar10-v66); weights and the inference helper are not part of this GitHub repository.
 
 ## Quick start
 
@@ -72,7 +77,7 @@ The notebook is a preserved experiment artifact. Its initial checkpoint-copy cel
 
 ## Inference from the Hugging Face package
 
-The model uses a **custom PyTorch implementation**, not a Transformers or Diffusers pipeline. The only inference helper is shipped with the separate Hugging Face package. After replacing `<HUGGING_FACE_MODEL_URL>` with the published model URL, run this in the installed environment:
+The model uses a **custom PyTorch implementation**, not a Transformers or Diffusers pipeline. The only inference helper is shipped with the separate Hugging Face package. To sample from the [published model](https://huggingface.co/onebelowall/ddpm-cifar10-v66), run this in the installed environment:
 
 ```python
 import sys
